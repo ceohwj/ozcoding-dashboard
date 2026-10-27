@@ -1,4 +1,4 @@
-import { timeChart, hbarChart } from './charts.js';
+import { timeChart, hbarChart } from './charts.js?v=2';
 
 const won = (v) => Number(v).toLocaleString('ko-KR');
 const man = (v) => (v / 10000).toFixed(1);
@@ -8,7 +8,7 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 
 const NAMES = ['kpi', 'monthly', 'quintile', 'institutions', 'heat', 'meta'];
 const load = async () => Object.fromEntries(await Promise.all(NAMES.map(async (n) => {
-  const res = await fetch(`data/processed/${n}.json`);
+  const res = await fetch(`data/processed/${n}.json`, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${n}.json (${res.status})`);
   return [n, await res.json()];
 })));
