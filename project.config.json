@@ -1,0 +1,23 @@
+{
+  "name": "OZ_dashboard_2",
+  "sheetId": "1nPuY8AKFAs2r9da4xUBV3WMKdLEBZJGpmd3kP7xKNvU",
+  "tabs": [
+    "claim",
+    "patient",
+    "institution",
+    "sick_master",
+    "code_table",
+    "sido_code",
+    "hospital_open",
+    "claim_sick",
+    "claim_rx",
+    "drug_ingredient"
+  ],
+  "rawDir": "data/raw",
+  "processedDir": "data/processed",
+  "analysis": {
+    "sickPrefix": "J",
+    "formCode": "031",
+    "minClaims": 20
+  }
+}

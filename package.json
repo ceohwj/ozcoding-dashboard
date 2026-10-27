@@ -1,0 +1,11 @@
+{
+  "name": "oz-dashboard-2",
+  "private": true,
+  "description": "호흡기 진료비 격차 모니터",
+  "scripts": {
+    "fetch": "node scripts/fetch-data.mjs",
+    "aggregate": "node scripts/aggregate.mjs",
+    "update": "node scripts/fetch-data.mjs && node scripts/aggregate.mjs",
+    "serve": "node scripts/serve.mjs"
+  }
+}
