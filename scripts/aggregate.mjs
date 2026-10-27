@@ -4,28 +4,12 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseCsv } from './lib.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = JSON.parse(await readFile(join(root, 'project.config.json'), 'utf8'));
 const { sickPrefix, formCode, minClaims } = cfg.analysis;
 
-function parseCsv(text) {
-  const rows = [];
-  let row = [], field = '', quoted = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (quoted) {
-      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else quoted = false; }
-      else field += c;
-    } else if (c === '"') quoted = true;
-    else if (c === ',') { row.push(field); field = ''; }
-    else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
-    else if (c !== '\r') field += c;
-  }
-  if (field || row.length) { row.push(field); rows.push(row); }
-  const head = rows[0];
-  return rows.slice(1).filter((r) => r.length > 1).map((r) => Object.fromEntries(head.map((k, i) => [k, r[i]])));
-}
 const read = async (name) => parseCsv(await readFile(join(root, cfg.rawDir, `${name}.csv`), 'utf8'));
 
 const [claim, patient, institution, codeTable, sido] = await Promise.all(

@@ -1,17 +1,11 @@
-import { timeChart, hbarChart } from './charts.js?v=2';
+import { timeChart, hbarChart } from './charts.js?v=3';
+import { load } from './data.js?v=3';
 
 const won = (v) => Number(v).toLocaleString('ko-KR');
 const man = (v) => (v / 10000).toFixed(1);
 const manWon = (v) => `${man(v)}만 원`;
 const $ = (id) => document.getElementById(id);
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
-
-const NAMES = ['kpi', 'monthly', 'quintile', 'institutions', 'heat', 'meta'];
-const load = async () => Object.fromEntries(await Promise.all(NAMES.map(async (n) => {
-  const res = await fetch(`data/processed/${n}.json`, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`${n}.json (${res.status})`);
-  return [n, await res.json()];
-})));
 
 // ---- 종별 가중 평균, 종별 순서, 격차 ----
 function tierStats(heat) {
@@ -134,6 +128,6 @@ try {
   window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => renderCharts(data), 120); });
 } catch (e) {
   const box = el('div', 'error-box');
-  box.append(el('b', '', '데이터를 불러오지 못했다. '), `${e.message}. \`npm run update\`로 집계한 뒤 \`npm run serve\`로 열어야 한다.`);
+  box.append(el('b', '', '데이터를 불러오지 못했다. '), `${e.message}. \`npm run update\`로 Supabase에 적재한 뒤 \`npm run serve\`로 열어야 한다.`);
   app.replaceChildren(box);
 }

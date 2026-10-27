@@ -5,7 +5,8 @@
   "scripts": {
     "fetch": "node scripts/fetch-data.mjs",
     "aggregate": "node scripts/aggregate.mjs",
-    "update": "node scripts/fetch-data.mjs && node scripts/aggregate.mjs",
+    "load": "node scripts/load-supabase.mjs",
+    "update": "node scripts/fetch-data.mjs && node scripts/load-supabase.mjs",
     "serve": "node scripts/serve.mjs"
   }
 }

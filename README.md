@@ -7,14 +7,14 @@
 
 ## 월간 갱신과 열기
 ```bash
-npm run update   # 시트 내려받기 + 집계 (fetch → aggregate)
+npm run update   # 시트 내려받기 + Supabase kr_claims 적재 (fetch → load)
 npm run serve    # http://localhost:5173/dashboard.html
 ```
-`npm`이 없으면 `node scripts/fetch-data.mjs && node scripts/aggregate.mjs`, `node scripts/serve.mjs`.
-`file://`로 열면 JSON을 읽지 못하므로 서버로 연다.
+적재에는 `.env`의 `SUPABASE_SERVICE_ROLE_KEY`가 필요하다. 테이블은 `supabase/migrations/001_kr_claims.sql`을 SQL Editor에서 한 번 실행해 만든다.
+`file://`로 열면 설정 JSON을 읽지 못하므로 서버로 연다.
 
 ## 분석 범위 바꾸기
-`project.config.json`의 `analysis`: `sickPrefix`(주상병 접두어), `formCode`(서식구분, 031=외래), `minClaims`(기관 비교 최소 청구 건수). 바꾼 뒤 `npm run aggregate`.
+`project.config.json`의 `analysis`: `sickPrefix`(주상병 접두어), `formCode`(서식구분, 031=외래), `minClaims`(기관 비교 최소 청구 건수). 바꾼 뒤 `npm run load`(설정 갱신). 화면이 Supabase 행을 읽어 다시 집계한다.
 
 ## 새 대시보드 프로젝트 만들기 (반복)
 ```bash

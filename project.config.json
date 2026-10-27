@@ -15,6 +15,11 @@
   ],
   "rawDir": "data/raw",
   "processedDir": "data/processed",
+  "supabase": {
+    "url": "https://dvybczczeavdbuldjiyp.supabase.co",
+    "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2eWJjemN6ZWF2ZGJ1bGRqaXlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwNDc2MjYsImV4cCI6MjEwODYyMzYyNn0.uD9j_QSKLsQK2GKTmLk2g2KpGZ-RWPXfoyPyeDwLdsI",
+    "table": "kr_claims"
+  },
   "analysis": {
     "sickPrefix": "J",
     "formCode": "031",
