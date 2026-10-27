@@ -28,7 +28,7 @@ touch "$TARGET/data/raw/.gitkeep" "$TARGET/data/processed/.gitkeep"
 # 이름/시트 ID 반영
 sed -i '' -e "s|\"name\": \".*\"|\"name\": \"$NAME\"|" -e "s|\"sheetId\": \".*\"|\"sheetId\": \"$SHEET_ID\"|" "$TARGET/project.config.json"
 sed -i '' -e "1s|.*|# $NAME|" "$TARGET/README.md" "$TARGET/CLAUDE.md"
-sed -i '' -e "s|<title>.*</title>|<title>$NAME</title>|" -e "s|<h1>.*</h1>|<h1>$NAME</h1>|" "$TARGET/src/index.html"
+sed -i '' -e "s|<title>.*</title>|<title>$NAME</title>|" -e "s|<h1>.*</h1>|<h1>$NAME</h1>|" "$TARGET/dashboard.html"
 
 # 빈 docs 뼈대
 cat > "$TARGET/docs/brief.md" <<'EOF'

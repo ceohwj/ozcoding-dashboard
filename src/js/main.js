@@ -8,7 +8,7 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 
 const NAMES = ['kpi', 'monthly', 'quintile', 'institutions', 'heat', 'meta'];
 const load = async () => Object.fromEntries(await Promise.all(NAMES.map(async (n) => {
-  const res = await fetch(`../data/processed/${n}.json`);
+  const res = await fetch(`data/processed/${n}.json`);
   if (!res.ok) throw new Error(`${n}.json (${res.status})`);
   return [n, await res.json()];
 })));

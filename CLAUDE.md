@@ -10,7 +10,8 @@
 - `scripts/fetch-data.mjs` — 시트 → `data/raw/*.csv`.
 - `scripts/aggregate.mjs` — `data/raw` → `data/processed/*.json` (화면이 읽는 집계).
 - `scripts/serve.mjs` — 로컬 서버. `src/`와 `data/processed/`만 서빙.
-- `src/` — 정적 HTML/CSS/JS(빌드·외부 라이브러리 없음). 차트는 `js/charts.js`의 SVG 도우미.
+- `dashboard.html` — 대시보드 페이지(배포 주소 `/dashboard.html`). 루트 `index.html`은 여기로 이동시킨다.
+- `src/` — 정적 CSS/JS(빌드·외부 라이브러리 없음). 차트는 `js/charts.js`의 SVG 도우미.
 
 ## 규칙
 - 원본(`data/raw`)은 읽기만 한다. 가공은 `data/processed`에 쓴다.

@@ -5,7 +5,7 @@
 ## 월간 갱신과 열기
 ```bash
 npm run update   # 시트 내려받기 + 집계 (fetch → aggregate)
-npm run serve    # http://localhost:5173/src/index.html
+npm run serve    # http://localhost:5173/dashboard.html
 ```
 `npm`이 없으면 `node scripts/fetch-data.mjs && node scripts/aggregate.mjs`, `node scripts/serve.mjs`.
 `file://`로 열면 JSON을 읽지 못하므로 서버로 연다.
@@ -26,5 +26,7 @@ docs/                 brief(요구사항) · data-dictionary · decisions
 scripts/              fetch-data.mjs · aggregate.mjs · serve.mjs · new-dashboard.sh
 data/raw/             원본 CSV (git 제외)
 data/processed/       집계 JSON (대시보드가 읽음)
-src/                  index.html, css/style.css, js/main.js, js/charts.js
+dashboard.html        대시보드 페이지(진입점)
+index.html            dashboard.html로 이동
+src/                  css/style.css, js/main.js, js/charts.js
 ```
