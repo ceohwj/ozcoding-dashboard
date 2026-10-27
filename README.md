@@ -2,6 +2,9 @@
 
 호흡기(J00~J99) 외래 명세서의 기관·종별·보험료 분위별 건당 진료비 격차를 월 1회 점검하는 웹 대시보드.
 
+- 배포: https://ceohwj.github.io/ozcoding-dashboard/dashboard.html
+- 처음부터 다시 만들기: [docs/REPRODUCE.md](docs/REPRODUCE.md) (프롬프트 + 명세 + 기준값)
+
 ## 월간 갱신과 열기
 ```bash
 npm run update   # 시트 내려받기 + 집계 (fetch → aggregate)
